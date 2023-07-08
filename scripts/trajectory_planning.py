@@ -22,24 +22,30 @@ def set_joint_positions(clientID, joint_handles, joint_positions):
     for i, handle in enumerate(joint_handles):
         sim.simxSetJointTargetPosition(clientID, handle, joint_positions[i], sim.simx_opmode_oneshot)
 
+def plan_cubic_trajectory(start_position, end_position, num_points):
+    t = np.linspace(0, 1, num_points)
+    trajectory = (1 - t[:, None]) * start_position + t[:, None] * end_position
+    return trajectory
+
 def main():
     clientID = connect_to_simulator()
 
-    # Obter handles dos juntas do robô UR5
+    # Obter handles das juntas do robô UR5
     joint_handles = []
     for i in range(1, 7):
         joint_name = 'UR5_joint' + str(i)
         joint_handle = get_object_handle(clientID, joint_name)
         joint_handles.append(joint_handle)
 
-    # Definir uma trajetória desejada
-    num_points = 50
-    trajectory = np.linspace(0, np.pi, num_points)
+    # Definir uma trajetória cúbica desejada
+    start_position = [0, 0, 0, 0, 0, 0]
+    end_position = [np.pi/2, np.pi/4, np.pi/2, np.pi/4, np.pi/2, 0]
+    num_points = 200
+    trajectory = plan_cubic_trajectory(start_position, end_position, num_points)
 
     # Executar a trajetória
     for point in trajectory:
-        joint_positions = [point, -point, point, -point, point, 0]  # Definir posições desejadas para cada junta
-        set_joint_positions(clientID, joint_handles, joint_positions)
+        set_joint_positions(clientID, joint_handles, point)
         sim.simxSynchronousTrigger(clientID)  # Dispara a próxima etapa da simulação
         sim.simxGetPingTime(clientID)  # Espera até a simulação ser concluída
 
@@ -47,3 +53,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
