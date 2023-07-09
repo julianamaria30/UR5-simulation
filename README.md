@@ -65,6 +65,22 @@ To execute this demonstration run the Main Script:
 
 ## Etapa A2
 
+In this stage, the goal is to implement a trajectory planning to move the UR5 robotic arm from position A to B. The method implemented here is cubic polynomial trajectories. In the scenario, the robotic arm will move to a position where the end-effector will move toward a hole:
+- [Trajectory planning](https://github.com/julianamaria30/UR5-simulation/blob/add-features/ur5-Trajectory-Planning/trajetoria.py)
+
+Also, it is possible to find a simple code to define the robot joints' position through the keyboard. This simple code can be useful during robot tests:
+- [Send joint position](https://github.com/julianamaria30/UR5-simulation/blob/add-features/ur5-Trajectory-Planning/envia_posicao.py)
+
+This code was tested in a Ubuntu 22.04 LTs machine: 
+- [Ubuntu 22.04.2 LTS (Jammy Jellyfish)](https://releases.ubuntu.com/jammy/) 
+
+Please load the .ttt file inside the [Scenes](https://github.com/julianamaria30/UR5-simulation/tree/add-features/ur5-Trajectory-Planning/Scenes) directory to proceed with this demonstration. Afterward, go to the main directory and run:
+
+```
+python3 trajetoria.py
+
+```
+The Youtube video showing the trajectory planning of the UR5 can be seen here: [UR5 - Trajectory planning](https://youtu.be/FpNdlKO_UHE)
 
 # Authors
 
