@@ -1,6 +1,6 @@
 # UR5 Robotic Arm Project
 
-This project implements the forward and inverse kinematics of the UR5 robotic arm and demonstrates their usage in a simulation environment. It also includes the implementation of trajectory planning for joint space using different approaches.
+This project implements the forward and inverse kinematics of the UR5 robotic arm and demonstrates their usage in a simulation environment. It also includes the implementation of trajectory planning for joint space using the Cubic Polynomial method.
 
 ## Table of Contents
 
