@@ -70,7 +70,14 @@ To execute this demonstration run the Main Script:
 
 ## Etapa A2
 
-In this stage, the goal is to implement a trajectory planning to move the UR5 robotic arm from position A to B. The method implemented here is cubic polynomial trajectories. In the scenario, the robotic arm will move to a position where the end-effector will move toward a hole:
+In this stage, the goal is to implement a trajectory planning to move the UR5 robotic arm from position A to B. The method implemented here is cubic polynomial trajectories. In the scenario, the robotic arm will move to a position where the end-effector will move toward a hole.
+
+<div align="center">
+  <img src="./docs/etapa02_trajectory_planning.gif" alt="Alt Text">
+</div>
+
+The trajectory planning file can be found here:
+ 
 - [Trajectory planning](https://github.com/julianamaria30/UR5-simulation/blob/add-features/ur5-Trajectory-Planning/trajetoria.py)
 
 Also, it is possible to find a simple code to define the robot joints' position through the keyboard. This simple code can be useful during robot tests:
