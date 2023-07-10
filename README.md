@@ -51,6 +51,11 @@ To run this project, follow the instructions below:
 
 In this stage, the goal is to implement the forward and inverse kinematics of the UR5 robotic arm. The modeling can be validated using the simulator. By executing the main.py script, you can validate the modeling of the UR5 robotic arm by observing the calculated forward kinematics and ensuring that the inverse kinematics solution matches the desired end effector poses.
 
+<div align="center">
+  <img src="./docs/etapa01_validation_fk_ik.gif" alt="Alt Text">
+</div>
+
+
 The `UR5Kinematics` module provides the implementation of the forward and inverse kinematics equations for the UR5 robotic arm. By using this module, you can calculate the forward kinematics and inverse kinematics for specific joint configurations and end effector poses.
 
 The `main.py` script showcases the usage of these functions, demonstrating the calculations of forward kinematics and inverse kinematics.

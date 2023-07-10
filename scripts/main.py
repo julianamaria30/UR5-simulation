@@ -1,28 +1,45 @@
 from UR5Kinematics import UR5Kinematics
+from UR5Simulation import UR5Simulation
 import numpy as np
+import time
 
 def main():
-    # Instantiate the UR5RobotArm class
-    robot = UR5Kinematics()
-    
-    # Define the joint angles (in radians)
-    #joint_angles = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6]
-    
-    joint_angles = [0, 0, 0, 0, 0, 0]
+    # Etapa A1:
+    # - Implementar a Cinemática Direta e Inversa do Robô UR5. Validar a modelagem com o auxílio do
+    #   simulador para um conjunto de valores das variáveis das juntas (Cinemática Direta) e para um conjunto de
+    #   posições e orientações da garra (Cinemática Inversa)
 
-    # Calculate the forward kinematics
-    end_effector_pose = robot.forward_kinematics(joint_angles)
-    print("End Effector Pose:\n", end_effector_pose)
+    # Exemplo para fins de demonstrações das equações da cinemática direta e cinemática inversa
     
-    # Define the desired end effector pose
-    desired_pose = np.array([[1, 0, 0, 0.5],
-                             [0, 1, 0, 0.3],
-                             [0, 0, 1, 0.2],
-                             [0, 0, 0, 1]])
-    
-    # Calculate the inverse kinematics
-    joint_angles = robot.inverse_kinematics(desired_pose)
-    print("Joint Angles:\n", joint_angles)
+    ur5 = UR5Kinematics()
+    simulation = UR5Simulation()
+
+    targetPos1 = [90 * np.pi / 180, 90 * np.pi / 180, -90 * np.pi / 180, 90 * np.pi / 180, 90 * np.pi / 180,
+                  90 * np.pi / 180]
+    Cinematica_Direta = ur5.forward_kinematics(targetPos1)
+    print(Cinematica_Direta)
+    Cinematica_Inversa = ur5.inverse_kinematics(Cinematica_Direta, elbow = 'down')
+    print(Cinematica_Inversa)
+    simulation.set_joint_angles(Cinematica_Inversa)
+
+    time.sleep(3)
+
+    targetPos2=[-90*np.pi/180,45*np.pi/180,90*np.pi/180,135*np.pi/180,90*np.pi/180,90*np.pi/180]
+    Cinematica_Direta = ur5.forward_kinematics(targetPos2)
+    print(Cinematica_Direta)
+    Cinematica_Inversa = ur5.inverse_kinematics(Cinematica_Direta)
+    print(Cinematica_Inversa)
+    simulation.set_joint_angles(Cinematica_Inversa)
+
+
+    time.sleep(3)
+
+    targetPos3 = [0,0,0,0,0,0]
+    Cinematica_Direta = ur5.forward_kinematics(targetPos3)
+    print(Cinematica_Direta)
+    Cinematica_Inversa = ur5.inverse_kinematics(Cinematica_Direta)
+    print(Cinematica_Inversa)
+    simulation.set_joint_angles(Cinematica_Inversa)
 
 if __name__ == '__main__':
     main()

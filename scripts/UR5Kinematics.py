@@ -154,6 +154,12 @@ class UR5Kinematics:
 if __name__ == '__main__':
     # Create UR5 kinematics object
     ur5 = UR5Kinematics()
-    q = [0,0,0,0,0,0]
+    #q = [0,0,0,0,0,0]
+    q = [90*np.pi/180,90*np.pi/180,-90*np.pi/180,90*np.pi/180,90*np.pi/180,90*np.pi/180]
     print(ur5.forward_kinematics(q))
+    pose = ur5.forward_kinematics(q)
+    print(ur5.inverse_kinematics(pose))
+    angles = ur5.inverse_kinematics(pose)
+    print(ur5.forward_kinematics(angles))
+
 
