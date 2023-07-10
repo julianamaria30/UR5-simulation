@@ -72,7 +72,7 @@ def end_effector(clientID):
     for i in range(jointNum):
         errorCode, returnHandle = vrep.simxGetObjectHandle(clientID, jointName + str(i + 1), vrep.simx_opmode_blocking)
         jointHandle[i] = returnHandle
-        time.sleep(2)
+        time.sleep(1)
     
     errorCode, holeHandle = vrep.simxGetObjectHandle(clientID, 'Hole', vrep.simx_opmode_blocking)
     errorCode, ikTipHandle = vrep.simxGetObjectHandle(clientID, 'UR5_ikTip', vrep.simx_opmode_blocking)
@@ -173,7 +173,7 @@ def main():
     # Definir uma trajetória desejada
     start_position = [0, 0, 0, 0, 0, 0]
     end_position = [0, 22.5 * RAD2DEG, 67.5 * RAD2DEG, 0, -90 * RAD2DEG, 0]
-    num_points = 100
+    num_points = 50
     trajectory = np.linspace(start_position, end_position, num_points)
 
     # Interpolar a trajetória
