@@ -11,11 +11,11 @@ This project implements the forward and inverse kinematics of the UR5 robotic ar
 
 ## Project Description
 
-The goal of this project is to develop and validate the forward and inverse kinematics of the UR5 robotic arm. Additionally, a trajectory planning system for joint space is implemented using the Cubic Polynomial method.
+This project aims to develop and validate the forward and inverse kinematics of the UR5 robotic arm. A trajectory planning system for joint space is also implemented using the Linear Segments with Parabolic Blends (LSPB).
 
 The project consists of the following components:
 
-- `UR5Kinematics`: This module contains the implementation of the forward and inverse kinematics equations for the UR5 robotic arm.
+- `UR5Kinematics`: This module implements the forward and inverse kinematics equations for the UR5 robotic arm.
 
 - `UR5Simulation`: This module provides simulation capabilities for controlling the UR5 robotic arm within the CoppeliaSim environment.
 
@@ -35,7 +35,7 @@ To run this project, follow the instructions below:
 
 3. CoppeliaSim Configuration:
    - Open CoppeliaSim and import the provided scene file from the repository.
-   - To ensure the correct configuration, make sure the server side is running in CoppeliaSim.  In a child script of the UR5 robot, check if the following command is set up to execute just once at the simulation start:
+   - To ensure the correct configuration, ensure the server side runs in CoppeliaSim.  In a child script of the UR5 robot, check if the following command is set up to execute just once at the simulation start:
      ```
      simRemoteApi.start(19999)
      ```
@@ -60,7 +60,7 @@ The `UR5Kinematics` module provides the implementation of the forward and invers
 
 The `main.py` script showcases the usage of these functions, demonstrating the calculations of forward kinematics and inverse kinematics.
 
-To execute this demonstration run the Main Script:
+To execute this demonstration, run the Main Script:
    - Navigate to the project directory on your local machine.
    - Run the main script using the following command:
      ```
