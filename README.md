@@ -92,7 +92,7 @@ Please load the .ttt file inside the [Scenes](https://github.com/julianamaria30/
 python3 trajetoria.py
 
 ```
-The Youtube video showing the trajectory planning of the UR5 can be seen here: [UR5 - Trajectory planning](https://youtu.be/FpNdlKO_UHE)
+The Youtube video showing the trajectory planning of the UR5 can be seen here: [UR5 - Trajectory planning](https://www.youtube.com/watch?v=-lYTY1Axo8s)
 
 # Authors
 
