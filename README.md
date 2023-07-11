@@ -70,7 +70,7 @@ To execute this demonstration run the Main Script:
 
 ## Etapa A2
 
-In this stage, the goal is to implement a trajectory planning to move the UR5 robotic arm from position A to B. The method implemented here is cubic polynomial trajectories. In the scenario, the robotic arm will move to a position where the end-effector can move toward a hole.
+In this stage, the goal is to implement a trajectory planning to move the UR5 robotic arm from position A to B. The method implemented here is Linear Segments with Parabolic Blends (LSPB). In the scenario, the robotic arm will move to a position where the end-effector can move toward a hole.
 
 <div align="center">
   <img src="./docs/etapa02_trajectory_planning.gif" alt="Alt Text">
